@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import './message.css'
+import './Message.css'
 const  Message = (props) => {
 	const [isChange, setIsChange] = useState(false);
 	const toggle = () => {
