@@ -1,9 +1,12 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect, useRef } from "react";
+import { nanoid } from 'nanoid';
+import "./MessageList.css"
 
-export const EnterMessage = () => {
+
+export const MessageList = () => {
 	const [mesageList, setMessageList] = useState([]);
 	const [inputValue, setInputValue] = useState("");
-
+	const inputRef = useRef(null);
 
 	const onChangeInputvalue = (event) => {
 		setInputValue(event.target.value)
@@ -13,7 +16,10 @@ export const EnterMessage = () => {
 		setInputValue("");
 	}
 
-
+	
+	useEffect(() => {
+		inputRef.current.focus();
+	})
 
 	const sendMessage = (author, value) => {
 		const newMesageList = [...mesageList]
@@ -46,19 +52,22 @@ export const EnterMessage = () => {
 		sendMessage("bot", "авто ответ");
 	},[mesageList])
 
-	return <div>
-		<form onSubmit={onSubmitMassage}>
-			<input 
-			onChange={onChangeInputvalue}
-			placeholder="Введите сообщение"
-			></input>
-			<button>Отправить</button>
-		</form>
-		<div>
-
+	return <div className="massege__wrapp">
+		<div  className="massege">
 			{
-				mesageList.map((item, index)=> <div key={index}>{item.author}---{item.value}</div>)
+				mesageList.map((item, index)=> <div key={nanoid()}>{item.author}---{item.value}</div>)
 			}
 		</div>
+		<form onSubmit={onSubmitMassage} className="massege__form">
+			<input 
+			className="massege__input"
+			ref={ inputRef }
+			onChange={onChangeInputvalue}
+			placeholder="Введите сообщение"
+			type="text"
+			></input>
+			<button className="massege__button">Отправить</button>
+		</form>
+
 	</div>
 }

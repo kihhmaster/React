@@ -1,0 +1,44 @@
+.massege__wrapp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	flex-direction: column;
+	background: #fff;
+	height: 100%;
+	position: relative;
+}
+.massege__button {
+	background: #3F92D2;
+	color: #fff;
+	height: 40px;
+}
+.massege__form {
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 20px;
+}
+
+.massege__button{
+	position: relative;
+	width: 20%;
+	max-width: 80px;
+	height: 100%;
+}
+
+.massege__input {
+	position: relative;
+	width: 80%;
+	height: 100%;
+	padding: 0;
+}
+
+.massege {
+	width: 100%;
+	overflow-y: auto;
+}
