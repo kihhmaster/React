@@ -2,13 +2,15 @@ import './App.css';
 // import Message from './Message.js';
 import React, {useEffect, useState} from 'react';
 import { useUsers } from './hooks/useUsers';
-import { EnterMessage } from './components/EnterMessage'
+import { MessageList } from './components/MessageList'
+import { ChatList } from './components/ListChat'
+import { nanoid } from 'nanoid';
+
 const UserList = (props) => {
   const [users, {addUser, removeUser}] = useUsers();
 
   useEffect(() => {
     console.log('update users', users);
-
     props.onChange(users);
 
   }, [users])
@@ -42,6 +44,7 @@ const UserList = (props) => {
   </div>
 }
 
+
 function App(props) {
   const [state, setState] = useState([])
 
@@ -59,13 +62,42 @@ function App(props) {
 
   return (
     <div className="App">
-      <UserList
+      {/* <UserList
         onChange={(users) => {
           console.log('onChange', users);
           setState(users);
         }}
-      />
-			<EnterMessage/>
+      /> */}
+			<div className="chat__wrap">
+				<ChatList list={
+					[
+						{
+							name: "name_1",
+							id: nanoid(),
+							text: "Lorem ipsum dolor sit, amet consectetur ..."
+						},
+						{
+							name: "name_2",
+							id: nanoid(),
+							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
+						{
+							name: "name_3",
+							id: nanoid(),
+							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
+						{
+							name: "name_4",
+							id: nanoid(),
+							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
+						{
+							name: "name_5",
+							id: nanoid(),
+							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
+					]
+				}/>
+				<MessageList/>
+			</div>
+
+
     </div>
   );
 }
