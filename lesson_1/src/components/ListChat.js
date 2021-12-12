@@ -2,13 +2,11 @@ import React from 'react';
 import './ListChat.css'
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import Divider from '@mui/material/Divider';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 
 
 export const ChatList = ({list}) => {
-
 	return <>
 		<List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
 			{
@@ -17,7 +15,6 @@ export const ChatList = ({list}) => {
 				))
 				
 			}
-
 
 
     </List>

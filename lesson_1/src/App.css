@@ -8,10 +8,6 @@
  align-items: center;
 }
 .chat__wrap {
-	width: 100%;
-	max-width: 800px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 50vh;
+	display: grid; 
+	grid-template-columns: 300px 1fr;
 }

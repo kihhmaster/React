@@ -1,9 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { nanoid } from 'nanoid';
 import "./MessageList.css"
+import { Redirect, useParams } from "react-router";
+import { CHATS } from '../helpers/mock';
 
 
 export const MessageList = () => {
+	const { chatId } = useParams();
 	const [mesageList, setMessageList] = useState([]);
 	const [inputValue, setInputValue] = useState("");
 	const inputRef = useRef(null);
@@ -17,9 +20,9 @@ export const MessageList = () => {
 	}
 
 	
-	useEffect(() => {
-		inputRef.current.focus();
-	})
+	// useEffect(() => {
+	// 	inputRef.current.focus();
+	// })
 
 	const sendMessage = (author, value) => {
 		const newMesageList = [...mesageList]
@@ -51,6 +54,11 @@ export const MessageList = () => {
 
 		sendMessage("bot", "авто ответ");
 	},[mesageList])
+
+	if (!CHATS.find(({ id }) =>id === chatId)) {
+		return <Redirect to="/chats" />
+	};
+
 
 	return <div className="massege__wrapp">
 		<div  className="massege">

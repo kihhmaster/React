@@ -1,10 +1,14 @@
 import './App.css';
 // import Message from './Message.js';
+import MessageList from './components/MessageList.js';
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import React, {useEffect, useState} from 'react';
 import { useUsers } from './hooks/useUsers';
-import { MessageList } from './components/MessageList'
-import { ChatList } from './components/ListChat'
-import { nanoid } from 'nanoid';
+import { Toolbar, Button, AppBar } from '@mui/material';
+
+import { Profile } from  "./routes/Profile";
+import { Home } from  "./routes/Home";
+import { Chats } from  "./routes/Chats";
 
 const UserList = (props) => {
   const [users, {addUser, removeUser}] = useUsers();
@@ -68,35 +72,34 @@ function App(props) {
           setState(users);
         }}
       /> */}
-			<div className="chat__wrap">
-				<ChatList list={
-					[
-						{
-							name: "name_1",
-							id: nanoid(),
-							text: "Lorem ipsum dolor sit, amet consectetur ..."
-						},
-						{
-							name: "name_2",
-							id: nanoid(),
-							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
-						{
-							name: "name_3",
-							id: nanoid(),
-							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
-						{
-							name: "name_4",
-							id: nanoid(),
-							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
-						{
-							name: "name_5",
-							id: nanoid(),
-							text: "Lorem ipsum dolor sit, amet consectetur ..."					},
-					]
-				}/>
-				<MessageList/>
-			</div>
 
+			<BrowserRouter>
+				<div className="top__line">
+					<AppBar>
+						<Toolbar>
+							<Button to="/" component={Link} color="inherit">
+								Home
+							</Button>
+							<Button to="/profile" component={Link} color="inherit">
+								Profile
+							</Button>
+							<Button to="/chats" component={Link} color="inherit">
+								chats
+							</Button>
+							<Button to="/messageList" component={Link} color="inherit">
+								MessageList
+							</Button>
+						</Toolbar>
+					</AppBar>
+					<Switch>
+						<Route component={Chats} path="/chats"></Route>
+						<Route component={Profile} path="/profile"></Route>
+						<Route component={Home} path="/"></Route>
+					</Switch>
+				</div>
+				
+			</BrowserRouter>
+			
 
     </div>
   );
