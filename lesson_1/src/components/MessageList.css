@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 100%;
+	width: 500px;
 	flex-direction: column;
 	background: #fff;
 	height: 100%;
@@ -41,4 +41,5 @@
 .massege {
 	width: 100%;
 	overflow-y: auto;
+	height: auto;
 }

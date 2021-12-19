@@ -10,4 +10,5 @@
 .chat__wrap {
 	display: grid; 
 	grid-template-columns: 300px 1fr;
+	margin-top: 100px;
 }

@@ -6,6 +6,8 @@ const createChatMock = (i) => ({
 	text: "Короткий текст сообщения...."
 });
 
-export const CHATS = Array.from({length: 10}).map((_, i) =>
+export const CHATS = Array.from({length: 3}).map((_, i) =>
+
 createChatMock(i)
+
 );
