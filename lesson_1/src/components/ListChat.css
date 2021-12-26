@@ -1,0 +1,32 @@
+.ChatTitle__wrap {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
+}
+.ChatTitle{
+	font-size: 14px;
+	font-weight: bold;
+}
+.ChatText {
+	font-size: 14px;
+	color: rgb(207, 207, 207)
+}
+
+.ChatItem__wrap {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	border-bottom: 1px solid rgb(226, 225, 225);
+
+}
+.chat__wrap .css-1mcnwpj-MuiList-root {
+	height: 70vh;
+	overflow: auto;
+	padding: 0 5px;
+
+	border-right: 1px solid rgb(226, 225, 225);
+
+
+}
